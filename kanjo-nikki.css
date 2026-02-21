@@ -1,0 +1,508 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f5e8ec;
+  color: #4a3740;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Variables ── */
+:root {
+  --pink:        #ffbdd0;
+  --pink-deep:   #f2a6bc;
+  --pink-dark:   #d65260;
+  --pink-bg:     #fff6f7;
+  --pink-band:   #ffdee6;
+  --pink-border: #ffd6e1;
+  --blue-bg:     #e6eeff;
+  --text-dark:   #4a3740;
+  --text-mid:    #715d67;
+  --text-light:  #907c82;
+  --discord:     #6e78f4;
+}
+
+/* ── Animations ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { animation: fadeSlideIn 0.5s ease 0.1s both; }
+.anim-2 { animation: fadeSlideIn 0.5s ease 0.25s both; }
+.anim-3 { animation: fadeSlideIn 0.5s ease 0.4s both; }
+.anim-4 { animation: fadeSlideIn 0.5s ease 0.55s both; }
+
+/* ── Page Wrapper ── */
+.page-wrapper {
+  max-width: 393px;
+  margin: 0 auto;
+  background: #fff1f1;
+  min-height: 100vh;
+}
+
+/* ──────────────────────────
+   Header
+────────────────────────── */
+.kn-header {
+  background: #fff;
+  overflow: hidden;
+}
+.kn-header-top-wave {
+  display: block;
+  width: 100%;
+  height: 72px;
+  object-fit: fill;
+}
+.kn-header-inner {
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.kn-header-union {
+  display: block;
+  width: 170px;
+  height: auto;
+}
+.kn-header-text { text-align: center; }
+.kn-header-sub {
+  font-size: 10px;
+  color: #ffb8b8;
+  letter-spacing: 4px;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.kn-header-title {
+  font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 2px;
+}
+.kn-header-bottom-wave {
+  display: block;
+  width: 100%;
+  height: 36px;
+  object-fit: fill;
+  transform: scaleY(-1);   /* flip to create bottom-concave wave */
+}
+
+/* ──────────────────────────
+   Cards Container
+────────────────────────── */
+.kn-cards {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Card ── */
+.kn-card {
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--pink-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.kn-card-tab {
+  display: inline-block;
+  background: var(--pink-band);
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 20px 8px 16px;
+  border-radius: 24px 0 12px 0;
+}
+.kn-card-body {
+  padding: 16px 24px 24px;
+}
+
+/* ──────────────────────────
+   Utilities
+────────────────────────── */
+.kn-center   { text-align: center; }
+.kn-mb-2     { margin-bottom: 8px; }
+.kn-mb-3     { margin-bottom: 12px; }
+.kn-mb-4     { margin-bottom: 16px; }
+.kn-mb-5     { margin-bottom: 20px; }
+.kn-mt-1     { margin-top: 4px; }
+.kn-mt-2     { margin-top: 8px; }
+.kn-mt-3     { margin-top: 12px; }
+.kn-mt-4     { margin-top: 16px; }
+.kn-text-sm  { font-size: 13px; line-height: 1.8; color: var(--text-dark); }
+.kn-text-red { color: var(--pink-dark); }
+.kn-text-pink{ color: var(--pink-deep); }
+.kn-accent   { color: var(--pink-deep); font-weight: 700; }
+.kn-icon-row { font-size: 24px; text-align: center; margin-bottom: 8px; }
+
+/* ──────────────────────────
+   Diagram (はじめに)
+────────────────────────── */
+.kn-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 12px 0 8px;
+}
+.kn-diagram-circles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.kn-circle-pink,
+.kn-circle-blue {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+.kn-circle-pink { background: #fff1f1; }
+.kn-circle-blue { background: var(--blue-bg); }
+
+/* V-shape connector */
+.kn-diagram-connector {
+  position: relative;
+  width: 190px;
+  height: 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.kn-v-left,
+.kn-v-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 28px;
+  border-bottom: 1.5px solid var(--pink);
+}
+.kn-v-left  { left: 10px;  border-right: 1.5px solid var(--pink); }
+.kn-v-right { right: 10px; border-left:  1.5px solid var(--pink); }
+.kn-v-arrow {
+  font-size: 10px;
+  color: var(--pink);
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+/* ──────────────────────────
+   Quote Box
+────────────────────────── */
+.kn-quote-box {
+  background: var(--pink-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 2;
+}
+
+/* ── Underline highlight ── */
+.kn-underline-mark {
+  height: 5px;
+  background: rgba(243,162,186,0.25);
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 70%;
+}
+
+/* ── Arrow (CSS) ── */
+.kn-arrow-down-css {
+  text-align: center;
+  color: var(--pink);
+  font-size: 20px;
+}
+
+/* ──────────────────────────
+   Explain / Photo rows
+────────────────────────── */
+.kn-explain-row,
+.kn-effect-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.kn-portrait {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+}
+
+/* ──────────────────────────
+   Benefit Box
+────────────────────────── */
+.kn-benefit-box,
+.kn-effect-benefit-box {
+  background: var(--pink-bg);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.kn-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+.kn-check-css {
+  color: var(--pink-deep);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ──────────────────────────
+   Note Box
+────────────────────────── */
+.kn-note-box {
+  background: #fef9f7;
+  border: 1px solid var(--pink-border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 12px;
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+.kn-note-icon { font-size: 22px; flex-shrink: 0; }
+
+/* ──────────────────────────
+   Step (ワークの内容)
+────────────────────────── */
+.kn-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+/* Circle image + number overlay */
+.kn-step-badge {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.kn-step-badge img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.kn-step-num-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  pointer-events: none;
+}
+.kn-step-label { font-size: 10px; line-height: 1.2; }
+.kn-step-num   { font-size: 20px; font-weight: 700; line-height: 1.1; }
+
+.kn-step-inner { width: 100%; }
+.kn-step-title-bar {
+  background: rgba(255,214,225,0.5);
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.kn-step-box {
+  background: #fff;
+  border: 2px solid var(--pink-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 11px;
+  color: var(--text-dark);
+  line-height: 1.9;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.kn-example { color: var(--pink-deep); }
+
+/* ──────────────────────────
+   Card wave footer (ワークの効果)
+────────────────────────── */
+.kn-card-wave-footer {
+  margin: 20px -24px -24px;
+  overflow: hidden;
+}
+.kn-card-wave-img {
+  display: block;
+  width: 100%;
+  height: 29px;
+  object-fit: fill;
+  transform: scaleY(-1);
+}
+.kn-card-wave-band {
+  background: var(--pink-band);
+  height: 60px;
+}
+
+/* ──────────────────────────
+   Bottom Section
+────────────────────────── */
+.kn-bottom {
+  padding: 8px 24px 48px;
+}
+.kn-divider-img {
+  display: block;
+  width: 100%;
+  height: 1px;
+  object-fit: fill;
+  margin: 8px 0;
+}
+
+/* Effect label */
+.kn-effect-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  color: var(--pink-deep);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+/* Checklist */
+.kn-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+.kn-check-item {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+.kn-check {
+  color: #ff96b5;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ──────────────────────────
+   Format Card
+────────────────────────── */
+.kn-format-card {
+  background: var(--pink-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.kn-format-sub {
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+.kn-format-body {
+  padding: 12px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kn-format-q {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.kn-q-num {
+  color: var(--pink-band);
+  font-size: 22px;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.kn-yn-row {
+  display: flex;
+  gap: 12px;
+}
+.kn-yn-btn {
+  border: 2px solid var(--pink-border);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 0;
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-mid);
+  letter-spacing: 1px;
+}
+.kn-discord-input {
+  border: 2px solid var(--pink-border);
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 11px;
+  color: var(--pink);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ── Discord Note ── */
+.kn-discord-note {
+  background: #f9f9ff;
+  border: 2px solid #e2e4fe;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 10px;
+  color: var(--text-mid);
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+}
+.kn-note-icon-lg { font-size: 22px; flex-shrink: 0; }
+.kn-discord-text { color: var(--discord); font-weight: 700; }
+
+/* ── Footer Text ── */
+.kn-footer-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.kn-footer-text p { color: var(--pink-deep); }
+.kn-work-num { color: var(--text-light); margin-top: 4px; }
